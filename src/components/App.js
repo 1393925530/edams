@@ -2,10 +2,11 @@
  * @author zong_xin
  * @date 2018.11.1
  */
-import {Row, Col, Input, Select,Button,Switch } from 'antd';
+import {Row, Col, Input, Select,Button,Switch,Form,Dropdown,Icon} from 'antd';
 import React from 'react';
 import {Alert} from 'antd'
 import {Table} from 'antd';
+const FormItem = Form.Item;
 const columns = [{
     title: '用户名',
     dataIndex: 'username',
@@ -72,7 +73,15 @@ for (let i = 0; i < 100; i++) {
 }
 
 class App extends React.Component {
+    state = {
+        hasData: true,
+    }
+    handleDataChange = (hasData) => {
+        this.setState({ hasData });
+    }
+
     render() {
+        const state = this.state;
         return (
             <div className="gutter-example">
                 <Row type="flex" justify="space-around">
@@ -85,8 +94,11 @@ class App extends React.Component {
                 <Row type="flex" justify="space-around">
                     <Col span={22}><span>地区:</span><Select defaultValue='无锡' className='status-select'/></Col>
                 </Row>
-                <div style={{float:'right'}}> <Button type="primary" icon="search">查询</Button> <Button icon="sync">重置</Button></div>
-                <Table columns={columns} dataSource={data} pagination={{pageSize: 20}} scroll={{y: 500}} style={{textAlign:'center',marginTop:'4%'}} />
+                <div style={{float:'right',color:'#fff',width:233}}> <Button type="primary" icon="search">查询</Button> <Button icon="sync">重置</Button><a style={{color: '#2baeff'}}>
+                        收起<Switch checked={!!state.hasData} onChange={this.handleDataChange} style={{opacity: 0,position: 'absolute',right:84}}  /><Icon type="down" />
+                    </a>
+                </div>
+                <Table {...this.state} columns={columns} dataSource={state.hasData ? data : null} pagination={{pageSize: 20}} scroll={{y: 500}} style={{textAlign:'center',marginTop:'4%'}} />
             </div>
 
         );
