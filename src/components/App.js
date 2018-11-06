@@ -3,10 +3,11 @@
  * @date 2018.11.1
  *
  */
-import {Row, Col, Input, Select,Button,Switch,Form,Dropdown,Icon} from 'antd';
+import {Row, Col, Input, Select,Button,Switch,Form,Dropdown,Icon,Layout} from 'antd';
 import React from 'react';
 import {Alert} from 'antd'
 import {Table} from 'antd';
+const {Header, Footer,Content} = Layout;
 const FormItem = Form.Item;
 const columns = [{
     title: '用户名',
@@ -84,6 +85,7 @@ class App extends React.Component {
     render() {
         const state = this.state;
         return (
+            <Content style={{ padding: 24, background: '#fff', minHeight: 800 ,margin:'30px 30px'}}>
             <div className="gutter-example">
                 <Row type="flex" justify="space-around">
                     <Col span={4}><span>姓名:</span><Input placeholder="请输入" className="app-input"/></Col>
@@ -99,9 +101,9 @@ class App extends React.Component {
                         收起<Switch checked={!!state.hasData} onChange={this.handleDataChange} style={{opacity: 0,position: 'absolute',right:84}}  /><Icon type="down" />
                     </a>
                 </div>
-                <Table {...this.state} columns={columns} dataSource={state.hasData ? data : null} pagination={{pageSize: 20}} scroll={{y: 500}} style={{textAlign:'center',marginTop:'4%'}} />
+                <Table {...this.state} columns={columns} dataSource={state.hasData ? data : null} pagination={{pageSize: 20}} scroll={{y: 500}} style={{textAlign:'center',marginTop:'4%'}}  />
             </div>
-
+            </Content>
         );
     }
 }

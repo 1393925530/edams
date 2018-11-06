@@ -1,5 +1,7 @@
 import React from 'react';
-import { Divider,Button } from 'antd'
+import { Divider,Button } from 'antd';
+import createG2 from 'g2-react';
+import { Stat } from 'g2';
 export default class Pagebutton extends React.Component{
     constructor(props) {
         super(props)
