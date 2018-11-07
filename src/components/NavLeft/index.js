@@ -63,7 +63,7 @@ export default class NavLeft extends React.Component{
                             <Link to="/echarts">Button</Link>
                         </Menu.Item>
                         <Menu.Item key="2">
-                            <Link to="/Test1">Icon</Link>
+                            <Link to="/Pagebutton">Icon</Link>
                         </Menu.Item>
                     </SubMenu>
                     <SubMenu key="sub2" title={<span><Icon type="table"/><span>归档设计管理</span></span>}>

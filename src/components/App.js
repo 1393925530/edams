@@ -3,10 +3,11 @@
  * @date 2018.11.1
  *
  */
-import {Row, Col, Input, Select,Button,Switch,Form,Dropdown,Icon,Layout} from 'antd';
+import {Row, Col, Input, Select,Button,Switch,Form,Dropdown,Icon,Layout,} from 'antd';
 import React from 'react';
 import {Alert} from 'antd'
 import {Table} from 'antd';
+import Model from './../components/Model'
 const {Header, Footer,Content} = Layout;
 const FormItem = Form.Item;
 const columns = [{
@@ -53,7 +54,6 @@ const columns = [{
     {title: '操作',
         dataIndex: 'operation',
         width:"9.1%",
-        render: text => <a href="javascript:;">{text}</a>,
     }];
 
 const data = [];
@@ -70,7 +70,7 @@ for (let i = 0; i < 100; i++) {
         createTime:'2018-02-05 09:00:00',
         endTime:'2018-02-05 09:00:00',
         enable:<Switch defaultChecked  />,
-        operation:'编辑'
+        operation:<Model/>
     });
 }
 
@@ -97,8 +97,8 @@ class App extends React.Component {
                 <Row type="flex" justify="space-around">
                     <Col span={22}><span>地区:</span><Select defaultValue='无锡' className='status-select'/></Col>
                 </Row>
-                <div style={{float:'right',color:'#fff',width:233}}> <Button type="primary" icon="search">查询</Button> <Button icon="sync">重置</Button><a style={{color: '#2baeff'}}>
-                        收起<Switch checked={!!state.hasData} onChange={this.handleDataChange} style={{opacity: 0,position: 'absolute',right:84}}  /><Icon type="down" />
+                <div style={{float:'right',color:'#fff',width:233}}> <Button type="primary" icon="search">查询</Button> <Button icon="sync">重置</Button><a style={{color: '#2baeff',position:'relative'}}>
+                        收起<Switch checked={!!state.hasData} onChange={this.handleDataChange} style={{opacity: 0,position: 'absolute',right:4}}  /><Icon type="down" />
                     </a>
                 </div>
                 <Table {...this.state} columns={columns} dataSource={state.hasData ? data : null} pagination={{pageSize: 20}} scroll={{y: 500}} style={{textAlign:'center',marginTop:'4%'}}  />

@@ -38,27 +38,35 @@ for (let j = 0; j < 88; j++) {
 const columns = [{
     title: 'EDA设计号',
     dataIndex: 'designNumber',
-    width: '16.6%'
+    width: '16.6%',
+    align:'center'
 }, {
     title: '加班类型',
     dataIndex: 'overtimeType',
-    width: '16.6%'
+    width: '16.6%',
+    align:'center'
+
+
 }, {
     title: '加班天数',
     dataIndex: 'overtimeDays',
-    width: '16.6%'
+    width: '16.6%',
+    align:'center'
 }, {
     title: '加班日期',
     dataIndex: 'overtimeDate',
-    width: '16.6%'
+    width: '16.6%',
+    align:'center'
 }, {
     title: '加班类型',
     dataIndex: 'overtimeArrangement',
-    width: '16.6%'
+    width: '16.6%',
+    align:'center'
 }, {
     title: '加班地点',
     dataIndex: 'overtimePlace',
-    width: '16.6%'
+    width: '16.6%',
+    align:'center'
 }];
 const column = [{
     title: '请假开始时间',
@@ -67,19 +75,24 @@ const column = [{
 }, {
     title: '请假结束时间',
     dataIndex: 'endTime',
-    width: '20%'
+    width: '20%',
+    align:'center'
 }, {
     title: '请假时长',
     dataIndex: 'longTime',
-    width: '20%'
+    width: '20%',
+    align:'center'
+
 }, {
     title: '请假类型',
     dataIndex: 'type',
-    width: '20%'
+    width: '20%',
+    align:'center'
 }, {
     title: '登记时间',
     dataIndex: 'registerTime',
-    width: '20%'
+    width: '20%',
+    align:'center'
 }];
 
 function onChange(date, dateString) {
@@ -143,9 +156,9 @@ export default class Bar extends React.Component {
                                     <Col span={12}><span className='right-content'>本季度</span><span
                                         className='right-content'>本年</span><a className='right-content'>本月</a>
                                         <DatePicker onChange={onChange} style={{padding: '0 5px'}}/></Col>
-                                </Row><br></br><Table dataSource={dataSource} columns={columns}
-                                                      pagination={{pageSize: 40}}
-                                                      scroll={{y: 340}}/>
+                                </Row><br></br>
+                                <Table dataSource={dataSource} columns={columns} pagination={{pageSize: 40}}
+                                       scroll={{y: 340}}  loading={{delay:300,tip:'Loading',size:'large',spinning:true}}  />
                             </Col>
                         </Row>
                     </Card>

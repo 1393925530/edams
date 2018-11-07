@@ -5,8 +5,6 @@
  */
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
-import logo from './logo.svg';
-import lab from './lab.svg'
 //引入antd导航组件
 import {Menu, Icon, Layout, Avatar,} from 'antd';
 import NavLeft from './components/NavLeft';
